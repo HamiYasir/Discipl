@@ -10,7 +10,6 @@ This is an an event and competition management site where users can join fitness
 - Working with Lucide React
 - Learning how a event management system works
 - Managing roles with Firebase Authentication 
-- Working with Render to host backend
 
 ## FRAMEWORKS AND OTHER RESOURCES USED IN THIS PROJECT:
 
@@ -22,10 +21,9 @@ This is an an event and competition management site where users can join fitness
 - Firebase Authentication - https://firebase.google.com/docs/auth
 - Firebase Firestore Database - https://firebase.google.com/docs/firestore
 - MongoDB - https://www.mongodb.com/
-- Render - https://render.com/
 
 ### DEPLOYMENT
 
-This app has yet to be deployed at https://dicipl-alpha-build.netlify.app/
+This app has been deployed at https://dicipl-alpha-build.netlify.app/
 
 You can check it out there. Enjoy :)

@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 const corsOptions = {
-  origin: 'https://dicipl-alpha-build.netlify.app', // Your Netlify URL
+  origin: 'http://localhost:5173', // Your local host 'https://dicipl-alpha-build.netlify.app', // Your Netlify URL
   optionsSuccessStatus: 200 
 };
 
