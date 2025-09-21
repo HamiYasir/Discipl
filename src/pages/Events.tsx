@@ -46,8 +46,8 @@ const Events: React.FC = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.post('https://discipl-server.onrender.com/api/events'); // This is used when running from github repo
-        // const response = await axios.post('http://localhost:8172/api/events'); // This is used when running on localhost
+        const response = await axios.get('https://discipl-server.onrender.com/api/events'); // This is used when running from github repo
+        // const response = await axios.get('http://localhost:8172/api/events'); // This is used when running on localhost
         // console.log(response.data); // DEBUG
 
         if (Array.isArray(response.data)) {
