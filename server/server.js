@@ -3,15 +3,18 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const eventRoutes = require('./routes/eventRoutes');
+const razorPayRoutes = require("./routes/razorPayRoutes.js");
+const participantRoutes = require("./routes/participantRoute.js");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // 1. DEFINE MIDDLEWARE (MUST BE FIRST)
+app.use(cors());
 app.use(express.json());
 
 const corsOptions = {
-  origin: ['https://dicipl-alpha-build.netlify.app', 'http://localhost:5173'], // Your Netlify URL , // Your local host '
+  origin: [ 'http://localhost:5173',  'https://dicipl-alpha-build.netlify.app'], // Local Host URL // Your Netlify URL
   optionsSuccessStatus: 200 
 };
 
@@ -28,6 +31,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/events', eventRoutes);
+app.use("/api/payments", razorPayRoutes);
+app.use("/api/participants", participantRoutes);
 
 // 4. START THE SERVER (ONLY ONCE, AT THE END)
 app.listen(PORT, () => {

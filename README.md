@@ -10,6 +10,7 @@ This is an an event and competition management site where users can join fitness
 - Working with Lucide React
 - Learning how a event management system works
 - Managing roles with Firebase Authentication 
+- Integrating Razorpay payment gateway to accept payments.
 
 ## FRAMEWORKS AND OTHER RESOURCES USED IN THIS PROJECT:
 
@@ -21,6 +22,7 @@ This is an an event and competition management site where users can join fitness
 - Firebase Authentication - https://firebase.google.com/docs/auth
 - Firebase Firestore Database - https://firebase.google.com/docs/firestore
 - MongoDB - https://www.mongodb.com/
+- Razorpay - https://razorpay.com/payment-gateway/
 
 ### DEPLOYMENT
 
