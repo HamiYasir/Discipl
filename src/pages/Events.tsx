@@ -56,7 +56,7 @@ const Events: React.FC = () => {
       try {
         const response = await axios.get('https://discipl-server.onrender.com/api/events'); // This is used when running from github repo
         // const response = await axios.get('http://localhost:8172/api/events'); // This is used when running on localhost
-        console.log(response.data); // DEBUG
+        // console.log(response.data); // DEBUG
 
         if (Array.isArray(response.data)) {
           setEvents(response.data);
@@ -107,12 +107,12 @@ const Events: React.FC = () => {
         paymentId: paymentDetails.razorpay_payment_id
       };
 
-      await axios.post('https://discipl-server.onrender.com/api/particpants/events'); // This is used when running from github repo
+      await axios.post('https://discipl-server.onrender.com/api/particpants/add', payload); // This is used when running from github repo
       // await axios.post("http://localhost:8172/api/participants/add", payload); // This is used when running on localhost
       // alert("Participant registered successfully!"); //DEBUG
       setIsParticipantModalOpen(false);
     } catch (err) {
-      console.error("Error saving participant data:", err);
+      // console.error("Error saving participant data:", err); // DEBUG
       // alert("Payment succeeded but failed to save participant data."); //DEBUG
     }
   };

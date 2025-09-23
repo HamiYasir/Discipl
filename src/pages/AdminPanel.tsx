@@ -104,7 +104,7 @@ const AdminPanel = () => {
       await axios.post('https://discipl-server.onrender.com/api/events', eventData); // This is used when running from github repo
       // const response = await axios.post('http://localhost:8172/api/events', eventData); // This is used when running on localhost
       // console.log(response.data); // DEBUG
-      alert("Event created successfully!"); // DEBUG
+      // alert("Event created successfully!"); // DEBUG
       
       setIsModalOpen(false);
       setEventDetails({
@@ -113,8 +113,8 @@ const AdminPanel = () => {
         org_phone_no: '', org_email: '', social_media: [{ platform: 'Instagram', handle: '' }],
       });
     } catch (error) {
-      console.error("Failed to create event:", error);
-      alert("Failed to create event. See console for details.");
+      // console.error("Failed to create event:", error); //  DEBUG
+      // alert("Failed to create event. See console for details."); // DEBUG
     } finally {
       setIsUploading(false);
     }
