@@ -3,18 +3,18 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const eventRoutes = require('./routes/eventRoutes');
-const razorPayRoutes = require("./routes/razorPayRoutes.js");
+const paymentRoutes = require("./routes/paymentRoutes.js");
 const participantRoutes = require("./routes/participantRoute.js");
+const ticketRoutes = require('./routes/ticketRoutes.js')
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.BACKEND_PORT || 5000;
 
 // 1. DEFINE MIDDLEWARE (MUST BE FIRST)
-app.use(cors());
 app.use(express.json());
 
 const corsOptions = {
-  origin: [ 'http://localhost:5173',  'https://dicipl-alpha-build.netlify.app'], // Local Host URL // Your Netlify URL
+  origin: [ `http://localhost:${process.env.FRONTEND_PORT}`,  'https://dicipl-alpha-build.netlify.app'], // Local Host URL // Your Netlify URL
   optionsSuccessStatus: 200 
 };
 
@@ -31,10 +31,11 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/events', eventRoutes);
-app.use("/api/payments", razorPayRoutes);
+app.use("/api/payments", paymentRoutes);
 app.use("/api/participants", participantRoutes);
+app.use("/api/tickets", ticketRoutes);
 
 // 4. START THE SERVER (ONLY ONCE, AT THE END)
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${process.env.BACKEND_PORT}`);
 });
