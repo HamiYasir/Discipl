@@ -102,8 +102,8 @@ const AdminPanel = () => {
       const eventData = { ...dataWithoutImage, image_url: imageUrl, judging_criteria: finalCriteria, social_media: finalSocials };
       // console.log("Posting event data:", eventData); // DEBUG
 
-      await axios.post('https://discipl-server.onrender.com/api/events', eventData); // This is used when running from github repo
-      // const response = await axios.post('http://localhost:8172/api/events', eventData); // This is used when running on localhost
+      // await axios.post('https://discipl-server.onrender.com/api/events', eventData); // This is used when running from github repo
+      const response = await axios.post('http://localhost:8172/api/events', eventData); // This is used when running on localhost
       // console.log(response.data); // DEBUG
       // alert("Event created successfully!"); // DEBUG
       
@@ -119,6 +119,29 @@ const AdminPanel = () => {
     } finally {
       setIsUploading(false);
     }
+  };
+
+  // Helper function to check if all important fields in event form are filled
+  const formIncompleteCheck = (eventDetails: any) => {
+    if(
+      eventDetails.name === '' || 
+      eventDetails.date  === '' || 
+      eventDetails.time === '' || 
+      eventDetails.location === '' ||
+      eventDetails.registration_fee  === 0 ||
+      eventDetails.category === '' ||
+      eventDetails.max_participants === 0 ||
+      eventDetails.ticket_fee === 0 ||
+      eventDetails.total_tickets === 0 ||
+      eventDetails.description === '' ||
+      eventDetails.judging_criteria.length === 0 ||
+      eventDetails.prize_sponsorship === '' ||
+      eventDetails.org_phone_no === '' || 
+      eventDetails.org_email === '' 
+    )
+      return true
+    else 
+      return false
   };
 
   return (
@@ -224,7 +247,12 @@ const AdminPanel = () => {
               {/* Form Actions */}
               <div className="flex justify-end items-center pt-6 border-t border-gray-200 space-x-4 flex-shrink-0">
                 <button type="button" onClick={() => setIsModalOpen(false)} disabled={isUploading} className="px-6 py-3 rounded-full font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors disabled:opacity-50">Cancel</button>
-                <button type="submit" disabled={isUploading} className="px-6 py-3 rounded-full font-semibold text-white bg-red-500 hover:bg-red-600 transition-colors flex items-center disabled:bg-red-400">{isUploading && <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>}{isUploading ? 'Creating...' : 'Create Event'}</button>
+                {(formIncompleteCheck(eventDetails) ?
+                  <button type="submit" disabled className="px-6 py-3 rounded-full font-semibold text-gray-500 bg-gray-200 transition-colors flex items-center border border-gray-500">Please fill all fields</button>
+                :
+                  <button type="submit" disabled={isUploading} className="px-6 py-3 rounded-full font-semibold text-white bg-red-500 hover:bg-red-600 transition-colors flex items-center disabled:bg-red-400">{isUploading && <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>}{isUploading ? 'Creating...' : 'Create Event'}</button>
+                )}
+                
               </div>
             </form>
           </div>
