@@ -149,8 +149,8 @@ const Events: React.FC = () => {
       }
       
       // console.log(payload) // DEBUG
-      // await axios.post('https://discipl-server.onrender.com/api/tickets/issueTicket', payload); // This is used when running from github repo
-      const response = await axios.post("http://localhost:8172/api/tickets/issueTicket", payload); // This is used when running on localhost
+      await axios.post('https://discipl-server.onrender.com/api/tickets/issueTicket', payload); // This is used when running from github repo
+      // const response = await axios.post("http://localhost:8172/api/tickets/issueTicket", payload); // This is used when running on localhost
       // console.log("Issued Ticket", response); //DEBUG
       
       // Close the modal and reset state
@@ -411,7 +411,7 @@ const Events: React.FC = () => {
                 <div className="flex flex-row items-center text-gray-700 justify-evenly gap-2">
                   <p className="text-small text-black">How many tickets?</p>
                   <div className="w-1/4">
-                    <input className="border-2 border-black rounded-xl w-full pl-3" type="number"  min={1} max={selectedEvent.max_participants} value={noOfTickets} onChange={(event)=>setNoOfTickets(Number(event.target.value))}/>
+                    <input className="border-2 border-black rounded-xl w-full pl-3" type="number"  min={1} max={availableTickets} value={noOfTickets} onChange={(event)=>setNoOfTickets(Number(event.target.value))}/>
                   </div>
                 </div>
               </div>
