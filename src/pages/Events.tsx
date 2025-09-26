@@ -114,7 +114,7 @@ const Events: React.FC = () => {
         paymentId: paymentDetails.response.razorpay_payment_id
       };
 
-      await axios.post('https://discipl-server.onrender.com/api/particpants/add', payload); // This is used when running from github repo
+      await axios.post('https://discipl-server.onrender.com/api/participants/add', payload); // This is used when running from github repo
       // await axios.post("http://localhost:8172/api/participants/add", payload); // This is used when running on localhost
       // alert("Participant registered successfully!"); //DEBUG
       setIsParticipantModalOpen(false);
