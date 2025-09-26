@@ -54,9 +54,9 @@ const getAllEvents = async (req, res) => {
       // Adding a new field to each event for the count of issued tickets
       {
         $addFields: {
-          issued_tickets_count: { $sum: '$ticket_details.no_of_tickets' }, // Calculate the total number of tickets issued by summing the 'no_of_tickets' value from each document inside the 'ticket_details' array.
-          registered_participants_count: { $size: { $ifNull: [ '$participants', [] ] } }  // Calculate the number of registered participants by getting the size of the 'participants' array.
-        }
+          issued_tickets_count: { $sum: { $ifNull: [ '$ticket_details.no_of_tickets', [] ] } }, // Calculate the total number of tickets issued by summing the 'no_of_tickets' value from each document inside the 'ticket_details' array.
+          registered_participants_count: { $cond: { if: { $isArray: "$participants" }, then: { $size: "$participants" }, else: 0 }} // Calculate the number of registered participants by getting the size of the 'participants' array.
+        },  
       },
       // Clean up the output by removing the large ticketDetails array
       {

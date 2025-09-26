@@ -90,9 +90,12 @@ const Events: React.FC = () => {
 
   const getCategoryColor = (category: string) => {
     const colors: { [key: string]: string } = {
-      'Challenge': 'bg-red-100 text-red-800', 'Workshop': 'bg-blue-100 text-blue-800',
-      'Competition': 'bg-purple-100 text-purple-800', 'Seminar': 'bg-green-100 text-green-800',
-      'Training': 'bg-orange-100 text-orange-800', 'Dance': 'bg-pink-100 text-pink-800'
+      'Power Lifting': 'bg-red-100 text-red-800', 
+      'Arm Wrestling': 'bg-blue-100 text-blue-800',
+      'Cardio': 'bg-purple-100 text-purple-800', 
+      'Calisthenics': 'bg-green-100 text-green-800',
+      'Training': 'bg-orange-100 text-orange-800', 
+      'Physique': 'bg-pink-100 text-pink-800'
     };
     return colors[category] || 'bg-gray-100 text-gray-800';
   };
@@ -119,7 +122,7 @@ const Events: React.FC = () => {
       // console.error("Error saving participant data:", err); // DEBUG
       // alert("Payment succeeded but failed to save participant data."); //DEBUG
     }
-  };
+  };  
 
   // Helper function to check if participant form is complete
   const isParticipantFormComplete = () => {
@@ -146,7 +149,7 @@ const Events: React.FC = () => {
       }
       
       // console.log(payload) // DEBUG
-      await axios.post('https://discipl-server.onrender.com/api/tickets/issueTicket', payload); // This is used when running from github repo
+      await axios.post("https://discipl-server.onrender.com/api/tickets/issueTicket", payload); // This is used when running from github repo
       //const response = await axios.post("http://localhost:8172/api/tickets/issueTicket", payload); // This is used when running on localhost
       // console.log("Issued Ticket", response); //DEBUG
       
