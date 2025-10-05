@@ -269,11 +269,11 @@ const AdminPanel = () => {
   const setStatus = async (status: String) => {
     try{
       if(status == "PASSED"){
-        const response = await axios.patch(`https://discipl-server.onrender.com/api/events/${selectedEvent?._id}`); // This is used when running from github repo    
+        const response = await axios.patch(`https://discipl-server.onrender.com/api/events/${selectedEvent?._id}`, { status: "ONGOING" }); // This is used when running from github repo    
         // const response = await axios.patch(`http://localhost:8172/api/events/${selectedEvent?._id}`, { status: "ONGOING" });
         console.log("Changed status to passed: ", response);
       }else if(status == "ONGOING"){
-        const response = await axios.patch(`https://discipl-server.onrender.com/api/events/${selectedEvent?._id}`); // This is used when running from github repo    
+        const response = await axios.patch(`https://discipl-server.onrender.com/api/events/${selectedEvent?._id}`, { status: "PASSED" }); // This is used when running from github repo    
         // const response = await axios.patch(`http://localhost:8172/api/events/${selectedEvent?._id}`, { status: "PASSED" });
         console.log("Changed status to ongoing: ", response);
       }else{
