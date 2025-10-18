@@ -11,6 +11,7 @@ This is an an event and competition management site where users can join fitness
 - Learning how a event management system works
 - Managing roles with Firebase Authentication 
 - Integrating Razorpay payment gateway to accept payments.
+- How to use Nodemailer for sending mail through website.
 
 ## FRAMEWORKS AND OTHER RESOURCES USED IN THIS PROJECT:
 
@@ -23,6 +24,7 @@ This is an an event and competition management site where users can join fitness
 - Firebase Firestore Database - https://firebase.google.com/docs/firestore
 - MongoDB - https://www.mongodb.com/
 - Razorpay - https://razorpay.com/payment-gateway/
+- Nodemailer - https://nodemailer.com/
 
 ### DEPLOYMENT
 
