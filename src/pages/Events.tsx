@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import axios from "axios";
-import { Calendar, MapPin, Users, Clock, Weight, Ruler, User, Cake } from "lucide-react";
+import { Calendar, MapPin, Users, Clock } from "lucide-react";
 import RazorPayButton from "../components/RazorPayButton";
 
 interface IEvent {
@@ -35,14 +35,6 @@ const Events: React.FC = () => {
   const [events, setEvents] = useState<IEvent[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Used when participant details are collected
-  // const [participantData, setParticipantData] = useState({
-  //   name: "",
-  //   age: 0,
-  //   height: 0,
-  //   weight: 0
-  // });
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
   const [isParticipantModalOpen, setIsParticipantModalOpen] = useState(false);
@@ -61,8 +53,8 @@ const Events: React.FC = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        // const response = await axios.get('https://discipl-server.onrender.com/api/events'); // This is used when running from github repo
-        const response = await axios.get('http://localhost:8172/api/events'); // This is used when running on localhost
+        const response = await axios.get('https://discipl-server.onrender.com/api/events'); // This is used when running from github repo
+        // const response = await axios.get('http://localhost:8172/api/events'); // This is used when running on localhost
         // console.log(response.data); // DEBUG
 
         if (Array.isArray(response.data)) {
@@ -156,7 +148,7 @@ const Events: React.FC = () => {
       // console.log(payload) // DEBUG
       
       await axios.post('https://discipl-server.onrender.com/api/tickets/issueTicket', payload); // This is used when running from github repo
-      c// onst pre_payment_response = await axios.post("http://localhost:8172/api/tickets/issueTicket", payload); // This is used when running on localhost
+      // const pre_payment_response = await axios.post("http://localhost:8172/api/tickets/issueTicket", payload); // This is used when running on localhost
       // console.log("Issued Ticket", pre_payment_response); //DEBUG
       
       // Close the modal and reset state
@@ -573,11 +565,6 @@ const Events: React.FC = () => {
               <p className="text-gray-500">GST: 14%</p>
               <p className="text-gray-500">(14 x ₹{selectedEvent.registration_fee * noOfTickets})/100 = ₹{(14 * selectedEvent.registration_fee * noOfTickets)/100} GST</p>
               <p className="text-black text-lg font-semibold mt-4 pt-2 border-t">Total(₹{selectedEvent.registration_fee * noOfTickets} + ₹{(14 * selectedEvent.registration_fee * noOfTickets)/100} GST): ₹{(selectedEvent.registration_fee * noOfTickets) + ((14 * selectedEvent.registration_fee * noOfTickets)/100)}</p>
-              {/* {!isParticipantFormComplete() ?
-                <p className="text-red-500">Please fill all fields before proceeding to payment.</p>
-                :
-                <p>&nbsp;</p>
-              } */}
             </div>
 
             <div className="bg-white rounded-b-3xl flex justify-end items-center p-4 border-t border-gray-200 space-x-4 flex-shrink-0">
