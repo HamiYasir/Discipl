@@ -199,40 +199,65 @@ const About = () => {
               <div className="flex flex-row items-center justify-between space-x-2 w-full">
                 {/* Block[1][1] */}
                 <div className="bg-[#FFDAD9] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[45%] md:w-[45%] flex flex-row items-center justify-evenly space-x-2">
-                  <div className="bg-[#F1F1F1] p-6 rounded-[2.25rem] shadow-md border-2 border-red-400 bg-gradient-to-t from-[#E0E0E0] to-[#FDFDFD]">
-                    <img src="logo_sing.png" className="h-[5rem] object-contain"/>
+                  <div className="">
+                    <img src="about_page_elements/carry_bag.png" className="h-[7rem] object-contain"/>
                   </div>
                   <div className="flex flex-col justify-start items center">
                     <img src="logo_white_bg.png" className="h-10 object-cover mb-1"/>
-                    <span className="text-2xl font-bold">User App</span>
+                    <span className="text-2xl font-bold">Sponsor App</span>
                   </div>
                 </div >
 
                 {/* Block[1][2] */}
-                <div className="bg-[#DEE8FF] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[55%] md:w-[55%]">
-
+                <div className="bg-[#DEE8FF] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[55%] md:w-[55%] flex flex-row items-center justify-evenly space-x-2">
+                  <div className="max-w-[12rem]"> 
+                    <span className="text-[1.35rem] font-bold">Sponsor<br/> Fitness Challenges & Prizes.</span>
+                  </div>
+                  <div>
+                    <img src="about_page_elements/cup.png" className="h-[10rem] object-contain"/>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-row items-center justify-center space-x-2 w-full">
                 {/* Block[2][1] */}
                 <div className="bg-[#FFDAD9] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[50%] md:w-[50%] flex flex-row items-center justify-between">
-
+                  <div className="max-w-[15rem] ml-[1.5rem]"> 
+                    <span className="text-[1.5rem] font-bold">Promote Health, <br/>Reach real Audiences.</span>
+                  </div>
+                  <div>
+                    <img src="about_page_elements/promote_health.png" className="h-[9rem] object-contain mr-[1.2rem]"/>
+                  </div>
                 </div >              
 
                 {/* Block[2][2] */}
-                <div className="bg-[#FFF0BB] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[50%] md:w-[50%]">
-
+                <div className="bg-[#FFF0BB] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[50%] md:w-[50%] flex flex-row items-center justify-between">
+                  <div className="min-w-[2rem]">
+                    <img src="about_page_elements/advertise.png" className="h-[9rem] object-contain"/>
+                  </div>
+                  <div className="max-w-[11rem] mr-[2rem]">
+                    <span className="text-[1.6rem] font-bold">Advertise<br/>across gyms & User Apps.</span>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-row items-center justify-center space-x-2 w-full">
                 {/* Block[3][1] */}
                 <div className="bg-[#FFF0BB] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[50%] md:w-[50%] flex flex-row items-center justify-between">
-
+                  <div className="min-w-[2rem]">
+                    <img src="about_page_elements/connect.png" className="h-[9rem] object-contain"/>
+                  </div>
+                  <div className="max-w-[12rem] mr-[2rem]">
+                    <span className="text-[1.6rem] font-bold">Connect<br/>directly with Active Users.</span>
+                  </div>
                 </div > 
 
                 {/* Block[3][2] */}
                 <div className="bg-[#E9E9E9] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[50%] md:w-[50%]">
-
+                  <div className="max-w-[12rem]">
+                    <span className="text-[1.53rem] font-bold">For Who?</span>
+                  </div>
+                  <div className="min-w-[2rem]">
+                    <span className="text-[1.53rem] font-bold">..</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -254,40 +279,65 @@ const About = () => {
               <div className="flex flex-row items-center justify-between space-x-2 w-full">
                 {/* Block[1][1] */}
                 <div className="bg-[#FFDAD9] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[45%] md:w-[45%] flex flex-row items-center justify-evenly space-x-2">
-                  <div className="bg-[#F1F1F1] p-6 rounded-[2.25rem] shadow-md border-2 border-red-400 bg-gradient-to-t from-[#E0E0E0] to-[#FDFDFD]">
-                    <img src="logo_sing.png" className="h-[5rem] object-contain"/>
+                  <div>
+                    <img src="about_page_elements/tv_ads.png" className="h-[7.5rem] object-contain"/>
                   </div>
                   <div className="flex flex-col justify-start items center">
                     <img src="logo_white_bg.png" className="h-10 object-cover mb-1"/>
-                    <span className="text-2xl font-bold">User App</span>
+                    <span className="text-2xl font-bold">TV Ads</span>
                   </div>
                 </div >
 
                 {/* Block[1][2] */}
-                <div className="bg-[#DEE8FF] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[55%] md:w-[55%]">
-
+                <div className="bg-[#DEE8FF] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[55%] md:w-[55%] flex flex-row items-center justify-evenly space-x-2">
+                  <div className="max-w-[12rem]"> 
+                    <span className="text-[1.5rem] font-bold">Promote<br/>Brands & Fitness Products.</span>
+                  </div>
+                  <div>
+                    <img src="about_page_elements/promote_brands.png" className="h-[10rem] object-contain"/>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-row items-center justify-center space-x-2 w-full">
                 {/* Block[2][1] */}
                 <div className="bg-[#FFDAD9] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[50%] md:w-[50%] flex flex-row items-center justify-between">
-
+                  <div className="max-w-[15rem] ml-[2rem]"> 
+                    <span className="text-[1.6rem] font-bold">In-gym TVs<br/>that benefit everyone.</span>
+                  </div>
+                  <div>
+                    <img src="about_page_elements/gym_tv.png" className="h-[9rem] object-contain mr-[4rem]"/>
+                  </div>
                 </div >              
 
                 {/* Block[2][2] */}
-                <div className="bg-[#FFF0BB] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[50%] md:w-[50%]">
-
+                <div className="bg-[#FFF0BB] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[50%] md:w-[50%] flex flex-row items-center justify-evenly space-x-2">
+                  <div className="min-w-[2rem]">
+                    <img src="about_page_elements/income_source.png" className="h-[9rem] object-contain"/>
+                  </div>
+                  <div className="max-w-[13rem] mr-[2rem]">
+                    <span className="text-[1.6rem] font-bold">New Income<br/>Source for Fitness Centers.</span>
+                  </div>
                 </div>
               </div>
               <div className="flex flex-row items-center justify-center space-x-2 w-full">
                 {/* Block[3][1] */}
                 <div className="bg-[#FFF0BB] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[50%] md:w-[50%] flex flex-row items-center justify-between">
-
+                  <div className="min-w-[2rem]">
+                    <img src="about_page_elements/keep_users_updated.png" className="h-[9rem] object-contain"/>
+                  </div>
+                  <div className="max-w-[13rem] mr-[2rem]">
+                    <span className="text-[1.6rem] font-bold">Keep users updated on Offers & Trends.</span>
+                  </div>
                 </div > 
 
                 {/* Block[3][2] */}
-                <div className="bg-[#E9E9E9] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[50%] md:w-[50%]">
-
+                <div className="bg-[#E9E9E9] h-[9rem] text-black p-6 rounded-2xl shadow-md hover:shadow-lg transition w-[50%] md:w-[50%] flex flex-col justify-start space-x-2">
+                  <div className="max-w-[12rem]">
+                    <span className="text-[1.53rem] font-bold">For Who?</span>
+                  </div>
+                  <div className="min-w-[2rem]">
+                    <span className="text-[1.53rem] font-bold">..</span>
+                  </div>
                 </div>
               </div>
             </div>
