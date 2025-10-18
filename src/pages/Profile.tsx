@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
-import { User, Ticket, Award, X, Calendar, MapPin } from 'lucide-react';
+import { Ticket, Award, X, Calendar, MapPin } from 'lucide-react';
 
 // Define the shape of our data
 interface IEventStub {

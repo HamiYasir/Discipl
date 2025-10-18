@@ -35,6 +35,14 @@ const Events: React.FC = () => {
   const [events, setEvents] = useState<IEvent[]>([]);
   const [loading, setLoading] = useState(true);
 
+  // Used when participant details are collected
+  // const [participantData, setParticipantData] = useState({
+  //   name: "",
+  //   age: 0,
+  //   height: 0,
+  //   weight: 0
+  // });
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isTicketModalOpen, setIsTicketModalOpen] = useState(false);
   const [isParticipantModalOpen, setIsParticipantModalOpen] = useState(false);
@@ -147,9 +155,9 @@ const Events: React.FC = () => {
       }
       // console.log(payload) // DEBUG
       
-      await axios.post('https://discipl-server.onrender.com/api/tickets/issueTicket', payload); // This is used when running from github repo
+      const pre_payment_response = await axios.post('https://discipl-web-frontend-1.onrender.com/api/tickets/issueTicket', payload); // This is used when running from github repo
       // const pre_payment_response = await axios.post("http://localhost:8172/api/tickets/issueTicket", payload); // This is used when running on localhost
-      // console.log("Issued Ticket", pre_payment_response); //DEBUG
+      console.log("Issued Ticket", pre_payment_response); //DEBUG
       
       // Close the modal and reset state
       setIsTicketModalOpen(false);
@@ -159,7 +167,7 @@ const Events: React.FC = () => {
       // Refetch the events so the issued_tickets_count and registered_participants_count can refresh 
       const post_payment_response = await axios.get('https://discipl-server.onrender.com/api/events'); // This is used when running from github repo      
       // const post_payment_response = await axios.get('http://localhost:8172/api/events'); // This is used when running on localhost
-      console.log("Fetched events after payment", post_payment_response) // DEBUG
+      // console.log("Fetched events after payment", post_payment_response) // DEBUG
 
       setEvents(post_payment_response.data);
       window.location.href = "/"; // redirect to home page
