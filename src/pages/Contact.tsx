@@ -33,8 +33,8 @@ const Contact = () => {
         setTimeout(() => setIsSubmitted(false), 3000);
       }
     } catch (error) {
-      console.error('Email sending failed:', error);
-      alert('Failed to send message. Please try again later.');
+      // console.error('Email sending failed:', error); // DEBUG
+      // alert('Failed to send message. Please try again later.'); // DEBUG
     } finally {
       setIsSubmitting(false);
     }

@@ -134,8 +134,8 @@ const Events: React.FC = () => {
       setEvents(post_payment_response.data);
       window.location.href = "/"; // redirect to home page
     } catch (error) {
-      console.error("Error saving participant data:", error); // DEBUG
-      alert("Payment succeeded but failed to save participant data."); //DEBUG
+      // console.error("Error saving participant data:", error); // DEBUG
+      // alert("Payment succeeded but failed to save participant data."); //DEBUG
     }
   };
 
@@ -172,8 +172,8 @@ const Events: React.FC = () => {
       setEvents(post_payment_response.data);
       window.location.href = "/"; // redirect to home page
     }catch(error){
-      console.error("Error issuing ticket for payment", error); // DEBUG
-      alert("Payment succeeded but failed to issue ticket for payment."); //DEBUG
+      // console.error("Error issuing ticket for payment", error); // DEBUG
+      // alert("Payment succeeded but failed to issue ticket for payment."); //DEBUG
     }
   }
 

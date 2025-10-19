@@ -305,7 +305,7 @@ const AdminPanel = () => {
         // const response = await axios.patch(`http://localhost:8172/api/events/${selectedEvent?._id}`, { status: "PASSED" });
         // console.log("Changed status to ongoing: ", response);
       }else{
-        console.log("Some error occurred while changing status.");
+        // console.log("Some error occurred while changing status.");
       }
 
       // Refetch the events so the issued_tickets_count and registered_participants_count can refresh 
@@ -316,7 +316,7 @@ const AdminPanel = () => {
       setEvents(post_payment_response.data);
       setIsStatusModalOpen(false);
     }catch(error){
-      console.log("Some error occurred while changing status."); // DEBUG
+      // console.log("Some error occurred while changing status."); // DEBUG
     }
   }
 
@@ -326,7 +326,7 @@ const AdminPanel = () => {
       if (!window.confirm("Are you sure you want to delete this event? This action cannot be undone.")) return;
       if (!window.confirm("NOTE: YOU ARE ABOUT TO DELETE AN EVENT.")) return;
       if (!window.confirm("NOTE: THIS WILL CANCEL ALL ASSOCIATED TICKETS AND REGISTERED PARTICIPANTS(NO REFUND WILL BE DONE).")) return;
-      await axios.delete(`https://discipl-server.onrender.com/api/events/${event?._id}`); // This is used when running from github repo
+      const response = await axios.delete(`https://discipl-server.onrender.com/api/events/${event?._id}`); // This is used when running from github repo
       // const response = await axios.delete(`http://localhost:8172/api/events/${event?._id}`); // This is used when running on localhost
       // console.log("Deleted event: ", response); // DEBUG
 
