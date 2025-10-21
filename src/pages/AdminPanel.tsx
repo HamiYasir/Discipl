@@ -95,7 +95,7 @@ const AdminPanel = () => {
         setEvents([]);
       }
     } catch (err) {
-      console.error("Error fetching events:", err);
+      // console.error("Error fetching events:", err); // DEBUG
       setEvents([]);
     } finally {
       setLoading(false);
@@ -298,14 +298,14 @@ const AdminPanel = () => {
     try{
       if(status == "PASSED"){
         await axios.patch(`https://discipl-server.onrender.com/api/events/${selectedEvent?._id}`, { status: "ONGOING" }); // This is used when running from github repo    
-        // const response = await axios.patch(`http://localhost:8172/api/events/${selectedEvent?._id}`, { status: "ONGOING" });
-        // console.log("Changed status to passed: ", response);
+        // const response = await axios.patch(`http://localhost:8172/api/events/${selectedEvent?._id}`, { status: "ONGOING" }); // This is used when running on localhost
+        // console.log("Changed status to passed: ", response); // DEBUG
       }else if(status == "ONGOING"){
         await axios.patch(`https://discipl-server.onrender.com/api/events/${selectedEvent?._id}`, { status: "PASSED" }); // This is used when running from github repo    
-        // const response = await axios.patch(`http://localhost:8172/api/events/${selectedEvent?._id}`, { status: "PASSED" });
-        // console.log("Changed status to ongoing: ", response);
+        // const response = await axios.patch(`http://localhost:8172/api/events/${selectedEvent?._id}`, { status: "PASSED" }); // This is used when running on localhost
+        // console.log("Changed status to ongoing: ", response); // DEBUG
       }else{
-        // console.log("Some error occurred while changing status.");
+        // console.log("Some error occurred while changing status."); // DEBUG
       }
 
       // Refetch the events so the issued_tickets_count and registered_participants_count can refresh 
@@ -326,7 +326,7 @@ const AdminPanel = () => {
       if (!window.confirm("Are you sure you want to delete this event? This action cannot be undone.")) return;
       if (!window.confirm("NOTE: YOU ARE ABOUT TO DELETE AN EVENT.")) return;
       if (!window.confirm("NOTE: THIS WILL CANCEL ALL ASSOCIATED TICKETS AND REGISTERED PARTICIPANTS(NO REFUND WILL BE DONE).")) return;
-      const response = await axios.delete(`https://discipl-server.onrender.com/api/events/${event?._id}`); // This is used when running from github repo
+      await axios.delete(`https://discipl-server.onrender.com/api/events/${event?._id}`); // This is used when running from github repo
       // const response = await axios.delete(`http://localhost:8172/api/events/${event?._id}`); // This is used when running on localhost
       // console.log("Deleted event: ", response); // DEBUG
 
@@ -339,14 +339,14 @@ const AdminPanel = () => {
       setEvents(post_payment_response.data);
       setIsStatusModalOpen(false);
     }catch(error){
-      console.log("Some error occurred while deleting event."); // DEBUG
+      // console.log("Some error occurred while deleting event."); // DEBUG
     }
   }
 
   // Function to export participant list
   const exportParticipantList = async (eventId: string | undefined) => {
     if (!eventId) {
-      alert("Cannot export: Event ID is missing.");
+      alert("Cannot export: Event ID is missing."); 
       return;
     }
 

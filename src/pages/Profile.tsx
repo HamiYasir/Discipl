@@ -41,7 +41,7 @@ const Profile: React.FC = () => {
             // console.log("Profile Data: ", response.data) // DEBUG
             setBookings(response.data);
         } catch (error) {
-            // console.error("Failed to fetch profile data", error);
+            // console.error("Failed to fetch profile data", error); // DEBUG
         } finally {
             setLoading(false);
         }

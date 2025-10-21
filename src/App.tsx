@@ -16,7 +16,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 
 function AppContent() {
   return (
-    <div className="h-screen w-screen flex flex-col bg-white pb-20 sm:pb-0 md:pb-0">
+    <div className="h-screen flex flex-col bg-white pb-20 sm:pb-0 md:pb-0">
       <Navbar />
       <div className="flex-1">
         <Routes>

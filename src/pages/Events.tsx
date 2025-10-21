@@ -73,7 +73,7 @@ const Events: React.FC = () => {
           setEvents([]);
         }
       } catch (err) {
-        console.error("Error fetching events:", err);
+        console.error("Error fetching events:", err); // DEBUG
         setEvents([]);
       } finally {
         setLoading(false);
@@ -155,9 +155,9 @@ const Events: React.FC = () => {
       }
       // console.log(payload) // DEBUG
       
-      const pre_payment_response = await axios.post('https://discipl-web-frontend-1.onrender.com/api/tickets/issueTicket', payload); // This is used when running from github repo
+      await axios.post('https://discipl-web-frontend-1.onrender.com/api/tickets/issueTicket', payload); // This is used when running from github repo
       // const pre_payment_response = await axios.post("http://localhost:8172/api/tickets/issueTicket", payload); // This is used when running on localhost
-      console.log("Issued Ticket", pre_payment_response); //DEBUG
+      // console.log("Issued Ticket", pre_payment_response); //DEBUG
       
       // Close the modal and reset state
       setIsTicketModalOpen(false);

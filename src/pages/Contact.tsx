@@ -25,7 +25,7 @@ const Contact = () => {
 
     try {
       const response = await axios.post('https://discipl-server.onrender.com/api/contacts/sendMessage', formData); // This is used when running from github repo
-      // const response = await axios.post('http://localhost:8172/api/contacts/sendMessage', formData);
+      // const response = await axios.post('http://localhost:8172/api/contacts/sendMessage', formData); // This is used when running on localhost
       
       if (response.data.success) {
         setIsSubmitted(true);
@@ -33,7 +33,7 @@ const Contact = () => {
         setTimeout(() => setIsSubmitted(false), 3000);
       }
     } catch (error) {
-      // console.error('Email sending failed:', error); // DEBUG
+      console.error('Email sending failed:', error);
       // alert('Failed to send message. Please try again later.'); // DEBUG
     } finally {
       setIsSubmitting(false);

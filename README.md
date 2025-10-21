@@ -12,6 +12,7 @@ This is an an event and competition management site where users can join fitness
 - Managing roles with Firebase Authentication 
 - Integrating Razorpay payment gateway to accept payments.
 - How to use Nodemailer for sending mail through website.
+- Making the website mobile friendly and responsive.
 
 ## FRAMEWORKS AND OTHER RESOURCES USED IN THIS PROJECT:
 
