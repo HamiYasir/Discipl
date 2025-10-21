@@ -34,7 +34,7 @@ const Contact = () => {
       }
     } catch (error) {
       console.error('Email sending failed:', error);
-      // alert('Failed to send message. Please try again later.'); // DEBUG
+      alert('Failed to send message. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }

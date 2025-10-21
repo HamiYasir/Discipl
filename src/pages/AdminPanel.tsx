@@ -95,7 +95,7 @@ const AdminPanel = () => {
         setEvents([]);
       }
     } catch (err) {
-      // console.error("Error fetching events:", err); // DEBUG
+      // console.error("Error fetching events:", err);
       setEvents([]);
     } finally {
       setLoading(false);

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Calendar, MapPin, Users, Clock } from "lucide-react";
 import RazorPayButton from "../components/RazorPayButton";
@@ -28,6 +29,7 @@ interface IEvent {
 }
 
 const Events: React.FC = () => {
+  const navigate = useNavigate();
   const { user } = useAuth(); // Get the logged-in user from context
 
   const [noOfTickets, setNoOfTickets] = useState(1)
@@ -132,10 +134,11 @@ const Events: React.FC = () => {
       // console.log("Fetched events after payment", post_payment_response) // DEBUG
 
       setEvents(post_payment_response.data);
-      window.location.href = "/"; // redirect to home page
+      // window.location.href = "/events"; // redirect to home page
+      setTimeout(() => navigate("/events"), 1000);
     } catch (error) {
-      // console.error("Error saving participant data:", error); // DEBUG
-      // alert("Payment succeeded but failed to save participant data."); //DEBUG
+      console.error("Error saving participant data:", error); // DEBUG
+      alert("Payment succeeded but failed to save participant data."); //DEBUG
     }
   };
 
@@ -167,13 +170,14 @@ const Events: React.FC = () => {
       // Refetch the events so the issued_tickets_count and registered_participants_count can refresh 
       const post_payment_response = await axios.get('https://discipl-server.onrender.com/api/events'); // This is used when running from github repo      
       // const post_payment_response = await axios.get('http://localhost:8172/api/events'); // This is used when running on localhost
-      // console.log("Fetched events after payment", post_payment_response) // DEBUG
+      console.log("Fetched events after payment", post_payment_response) // DEBUG
 
       setEvents(post_payment_response.data);
-      window.location.href = "/"; // redirect to home page
+      // window.location.href = "/events"; // redirect to home page
+      setTimeout(() => navigate("/events"), 1000);
     }catch(error){
-      // console.error("Error issuing ticket for payment", error); // DEBUG
-      // alert("Payment succeeded but failed to issue ticket for payment."); //DEBUG
+      console.error("Error issuing ticket for payment", error); // DEBUG
+      alert("Payment succeeded but failed to issue ticket for payment."); //DEBUG
     }
   }
 
