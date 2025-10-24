@@ -1,8 +1,17 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, Youtube } from 'lucide-react';
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
 const Footer: React.FC = () => {
+  const navigate = useNavigate();
+
+  // Opens internal route in new tab (without breaking React Router)
+  const handleOpenInNewTab = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    const newTab = window.open(`${window.location.origin}${path}`, '_blank', 'noopener,noreferrer');
+    if (newTab) newTab.focus();
+  };
+
   return (
     <footer className="bg-neutral-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -85,7 +94,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-neutral-800 mt-12 pt-8 text-center">
           <p className="text-neutral-400 text-sm">
-            © 2025 Discipl. All rights reserved. | <Link to="/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-primary-500 transition-colors">Privacy Policy</Link> | <Link to="/privacy-policy" target="_blank" rel="noopener noreferrer" className="hover:text-primary-500 transition-colors">Terms and Conditions</Link> | <a href="https://thediscipl.com/privacy-policy-vendorapp/" target="_blank">Privacy Policy for Vendor App</a>
+            © 2025 Discipl. All rights reserved. | <a href="/privacy-policy" onClick={(e) => handleOpenInNewTab(e, '/privacy-policy')} className="hover:text-primary-500 transition-colors">Privacy Policy</a> | <a href="/privacy-policy" onClick={(e) => handleOpenInNewTab(e, '/privacy-policy')} className="hover:text-primary-500 transition-colors">Terms and Conditions</a> | <a>Privacy Policy for Vendor App</a>
           </p>
         </div>
               
