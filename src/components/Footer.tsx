@@ -5,11 +5,10 @@ import { useNavigate } from 'react-router-dom';
 const Footer: React.FC = () => {
   const navigate = useNavigate();
 
-  // Opens internal route in new tab (without breaking React Router)
-  const handleOpenInNewTab = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
-    e.preventDefault();
-    const newTab = window.open(`${window.location.origin}${path}`, '_blank', 'noopener,noreferrer');
-    if (newTab) newTab.focus();
+  const handleInternalLink = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault(); // stop the browser from doing a full reload
+    window.scrollTo(0, 0); // scroll to top if desired
+    navigate(path);
   };
 
   return (
@@ -94,7 +93,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-neutral-800 mt-12 pt-8 text-center">
           <p className="text-neutral-400 text-sm">
-            © 2025 Discipl. All rights reserved. | <a href="/privacy-policy" onClick={(e) => handleOpenInNewTab(e, '/privacy-policy')} className="hover:text-primary-500 transition-colors">Privacy Policy</a> | <a href="/privacy-policy" onClick={(e) => handleOpenInNewTab(e, '/privacy-policy')} className="hover:text-primary-500 transition-colors">Terms and Conditions</a> | <a>Privacy Policy for Vendor App</a>
+            © 2025 Discipl. All rights reserved. | <a href="/privacy-policy" onClick={(e) => handleInternalLink(e, '/privacy-policy')} className="hover:text-primary-500 transition-colors">Privacy Policy</a> | <a href="/privacy-policy" onClick={(e) => handleInternalLink(e, '/terms-conditions')} className="hover:text-primary-500 transition-colors">Terms and Conditions</a> | <a>Privacy Policy for Vendor App</a>
           </p>
         </div>
               
