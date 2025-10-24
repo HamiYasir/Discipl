@@ -13,6 +13,8 @@ import AdminPanel from './pages/AdminPanel';
 import Profile from './pages/Profile';
 import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsConditions from './pages/TermsConditions';
 
 function AppContent() {
   return (
@@ -26,6 +28,8 @@ function AppContent() {
           <Route path="/fitness-directory" element={<FitnessDirectory />} />
           <Route path="/events" element={<Events />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+          <Route path="/terms-conditions" element={<TermsConditions/>} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={

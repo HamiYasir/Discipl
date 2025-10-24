@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Dumbbell, Facebook, Twitter, Instagram, Mail, Phone, MapPin, Youtube } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, Youtube } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -85,9 +84,12 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-neutral-800 mt-12 pt-8 text-center">
           <p className="text-neutral-400 text-sm">
-            © 2025 Discipl. All rights reserved. | <a href="privacy_policy.pdf" target="_blank">Privacy Policy</a> | <a href="terms_and_conditions.pdf" target="_blank">Terms and Conditions</a> | <a href="https://thediscipl.com/privacy-policy-vendorapp/" target="_blank">Privacy Policy for Vendor App</a>
+            © 2025 Discipl. All rights reserved. | <a href="/privacy-policy" target="_blank">Privacy Policy</a> | <a href="/terms-conditions" target="_blank">Terms and Conditions</a> | <a href="https://thediscipl.com/privacy-policy-vendorapp/" target="_blank">Privacy Policy for Vendor App</a>
           </p>
         </div>
+              
+        {/* Space to show terms and conditions in mobile view */}
+        <div className="block lg:hidden mt-20"></div>
       </div>
     </footer>
   );
