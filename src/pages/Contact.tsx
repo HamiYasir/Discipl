@@ -24,8 +24,8 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // const response = await axios.post('https://discipl-server.onrender.com/api/contacts/sendMessage', formData); // This is used when running from github repo
-      const response = await axios.post('http://localhost:8172/api/contacts/sendMessage', formData); // This is used when running on localhost
+      const response = await axios.post('https://discipl-server.onrender.com/api/contacts/sendMessage', formData); // This is used when running from github repo
+      // const response = await axios.post('http://localhost:8172/api/contacts/sendMessage', formData); // This is used when running on localhost
       
       if (response.data.success) {
         setIsSubmitted(true);

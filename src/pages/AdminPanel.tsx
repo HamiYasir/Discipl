@@ -86,9 +86,9 @@ const AdminPanel = () => {
   // Fetch events stored in backend
   const fetchEvents = async () => {
     try {
-      // const response = await axios.get('https://discipl-server.onrender.com/api/events'); // This is used when running from github repo
-      const response = await axios.get('http://localhost:8172/api/events'); // This is used when running on localhost
-      console.log("Events Fetched: ", response.data); // DEBUG
+      const response = await axios.get('https://discipl-server.onrender.com/api/events'); // This is used when running from github repo
+      // const response = await axios.get('http://localhost:8172/api/events'); // This is used when running on localhost
+      // console.log("Events Fetched: ", response.data); // DEBUG
 
       if (Array.isArray(response.data)) {
         setEvents(response.data);
@@ -225,8 +225,8 @@ const AdminPanel = () => {
       };
       // console.log("Posting event data:", eventData); // DEBUG
 
-      // const response = await axios.post('https://discipl-server.onrender.com/api/events', eventData); // This is used when running from github repo
-      const response = await axios.post('http://localhost:8172/api/events', eventData); // This is used when running on localhost
+      const response = await axios.post('https://discipl-server.onrender.com/api/events', eventData); // This is used when running from github repo
+      // const response = await axios.post('http://localhost:8172/api/events', eventData); // This is used when running on localhost
       // console.log(response.data); // DEBUG
       // alert("Event created successfully!"); // DEBUG
 
@@ -319,26 +319,26 @@ const AdminPanel = () => {
   const setStatus = async (status: String) => {
     try{
       if(status == "PASSED"){
-        // await axios.patch(`https://discipl-server.onrender.com/api/events/${selectedEvent?._id}`, { status: "ONGOING" }); // This is used when running from github repo    
-        const response = await axios.patch(`http://localhost:8172/api/events/${selectedEvent?._id}`, { status: "ONGOING" }); // This is used when running on localhost
-        console.log("Changed status to passed: ", response); // DEBUG
+        await axios.patch(`https://discipl-server.onrender.com/api/events/${selectedEvent?._id}`, { status: "ONGOING" }); // This is used when running from github repo    
+        // const response = await axios.patch(`http://localhost:8172/api/events/${selectedEvent?._id}`, { status: "ONGOING" }); // This is used when running on localhost
+        // console.log("Changed status to passed: ", response); // DEBUG
       }else if(status == "ONGOING"){
-        // await axios.patch(`https://discipl-server.onrender.com/api/events/${selectedEvent?._id}`, { status: "PASSED" }); // This is used when running from github repo    
-        const response = await axios.patch(`http://localhost:8172/api/events/${selectedEvent?._id}`, { status: "PASSED" }); // This is used when running on localhost
-        console.log("Changed status to ongoing: ", response); // DEBUG
+        await axios.patch(`https://discipl-server.onrender.com/api/events/${selectedEvent?._id}`, { status: "PASSED" }); // This is used when running from github repo    
+        // const response = await axios.patch(`http://localhost:8172/api/events/${selectedEvent?._id}`, { status: "PASSED" }); // This is used when running on localhost
+        // console.log("Changed status to ongoing: ", response); // DEBUG
       }else{
-        console.log("Some error occurred while changing status."); // DEBUG
+        // console.log("Some error occurred while changing status."); // DEBUG
       }
 
       // Refetch the events so the issued_tickets_count and registered_participants_count can refresh 
-      // const post_payment_response = await axios.get('https://discipl-server.onrender.com/api/events'); // This is used when running from github repo      
-      const post_payment_response = await axios.get('http://localhost:8172/api/events'); // This is used when running on localhost
-      console.log("Fetched events after payment", post_payment_response) // DEBUG
+      const post_payment_response = await axios.get('https://discipl-server.onrender.com/api/events'); // This is used when running from github repo      
+      // const post_payment_response = await axios.get('http://localhost:8172/api/events'); // This is used when running on localhost
+      // console.log("Fetched events after payment", post_payment_response) // DEBUG
 
       setEvents(post_payment_response.data);
       setIsStatusModalOpen(false);
     }catch(error){
-      console.log("Some error occurred while changing status."); // DEBUG
+      // console.log("Some error occurred while changing status."); // DEBUG
     }
   }
 
@@ -348,20 +348,20 @@ const AdminPanel = () => {
       if (!window.confirm("Are you sure you want to delete this event? This action cannot be undone.")) return;
       if (!window.confirm("NOTE: YOU ARE ABOUT TO DELETE AN EVENT.")) return;
       if (!window.confirm("NOTE: THIS WILL CANCEL ALL ASSOCIATED TICKETS AND REGISTERED PARTICIPANTS(NO REFUND WILL BE DONE).")) return;
-      // await axios.delete(`https://discipl-server.onrender.com/api/events/${event?._id}`); // This is used when running from github repo
-      const response = await axios.delete(`http://localhost:8172/api/events/${event?._id}`); // This is used when running on localhost
-      console.log("Deleted event: ", response); // DEBUG
+      await axios.delete(`https://discipl-server.onrender.com/api/events/${event?._id}`); // This is used when running from github repo
+      // const response = await axios.delete(`http://localhost:8172/api/events/${event?._id}`); // This is used when running on localhost
+      // console.log("Deleted event: ", response); // DEBUG
 
       // Refetch the events so the issued_tickets_count and registered_participants_count can refresh 
-      // const post_payment_response = await axios.get('https://discipl-server.onrender.com/api/events'); // This is used when running from github repo      
-      const post_payment_response = await axios.get('http://localhost:8172/api/events'); // This is used when running on localhost
-      console.log("Fetched events after payment", post_payment_response) // DEBUG
+      const post_payment_response = await axios.get('https://discipl-server.onrender.com/api/events'); // This is used when running from github repo      
+      // const post_payment_response = await axios.get('http://localhost:8172/api/events'); // This is used when running on localhost
+      // console.log("Fetched events after payment", post_payment_response) // DEBUG
 
       setSelectedEvent(null);
       setEvents(post_payment_response.data);
       setIsStatusModalOpen(false);
     }catch(error){
-      console.log("Some error occurred while deleting event."); // DEBUG
+      // console.log("Some error occurred while deleting event."); // DEBUG
     }
   }
 
@@ -373,8 +373,8 @@ const AdminPanel = () => {
     }
 
     try {
-      // const exportUrl = `https://discipl-server.onrender.com/api/participants/export/${eventId}`; // This is used when running from github repo
-      const exportUrl = `http://localhost:8172/api/participants/export/${eventId}`; // This is used when running on localhost
+      const exportUrl = `https://discipl-server.onrender.com/api/participants/export/${eventId}`; // This is used when running from github repo
+      // const exportUrl = `http://localhost:8172/api/participants/export/${eventId}`; // This is used when running on localhost
 
       // 1. Make the request with axios, expecting a 'blob' (file data) in response
       const response = await axios.get(exportUrl, {
