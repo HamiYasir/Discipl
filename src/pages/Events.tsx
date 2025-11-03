@@ -288,12 +288,6 @@ const Events: React.FC = () => {
                     className="w-full h-48 object-cover border border-b-gray-200 border-4"
                   />
 
-                  {event.is_audience_only && (
-                    <span className="flex items-center text-gray-700 bg-black w-28 p-1 rounded-full justify-center mt-4 ml-4 -mb-4">
-                      <p className="text-xs font-bold"><span className="text-white">AUDIENCE </span><span className="text-red-500">ONLY</span></p>
-                    </span>
-                  )}
-
                   <div className="p-6 flex-1 flex flex-col">
                     <h2 className="text-2xl font-bold mb-2 text-gray-900">
                       {event.name}
